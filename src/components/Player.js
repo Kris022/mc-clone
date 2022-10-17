@@ -10,7 +10,7 @@ export default function Player() {
   const [ref, api] = useSphere(() => ({
     mass: 1,
     type: "Dynamic",
-    position: [0, 0, 0],
+    position: [0, 5, 0],
   }));
 
   const position = useRef([0, 0, 0]);
@@ -20,6 +20,15 @@ export default function Player() {
       position.current = p;
     });
   }, [api.position]);
+
+  const vel = useRef([0, 0, 0]);
+
+  useEffect(() => {
+    api.velocity.subscribe((p) => {
+      vel.current = p;
+    });
+  }, [api.velocity]);
+  
 
   useFrame(() => {
     camera.position.copy(

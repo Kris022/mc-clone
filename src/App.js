@@ -7,6 +7,7 @@ import Player from "./components/Player";
 function App() {
   return (
     <>
+    <h1>Hello</h1>
       <Canvas>
         <Sky sunPosition={[100, 100, 20]} />
         <ambientLight intensity={0.5} />
